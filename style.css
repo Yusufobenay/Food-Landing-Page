@@ -1,0 +1,201 @@
+*,::after,::before{
+margin: 0;                /* Kutunun dis bosluklarini sifirlar*/
+padding: 0;               /* Kutunun ic bosluklarini sifirlar*/
+box-sizing: border-box;      /* kutunun disa tasmasini engeller*/
+}
+body{
+    margin: 0 100px;
+    background-color: #ffeae0;
+}
+/* ------MENU---------- */
+.nav{
+    width: 100%;
+    display: flex;    /*menu ve butonlari tek satira dizer*/
+    justify-content: space-between;   /*Elemanlarin arasini acar logoyu sola,butonlari saga,listeyi ortaya yaslar*/
+    align-items: center;   /*ayni hizada ortalar*/
+    padding: 30px 0;      /*bosluk verir*/
+}
+.nav .logo h1{
+    font-weight: 600;             /*Logoyu belirginlestirmek icin yazi kalinligini artirir*/
+    font-family: sans-serif;      /*Logoya modern ve kosesiz bir yazi tipi verir*/
+    color: #000000;             
+}
+.nav .logo b{
+    color: #ff511c;           /*Markanin 'io' ekine dikkat cekici turuncu renk verir*/
+}
+.nav ul{
+    display: flex;              /* Alt alta duran liste elemanlarini (li) yan yana tek satira dizer */
+    list-style: none;           /* Liste elemanlarinin solundaki varsayilan siyah noktalari kaldirir */
+}
+.nav ul li{                     
+margin-right: 30px;             /* Menu linklerinin birbirine yapismamasi icin sag taraflarina bosluk birakir */
+}
+.nav ul li a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+/*--------ACTIVE--------- */
+.nav ul .active::after{
+    content: '';
+    width: 50%;
+    height: 3px;
+background-color: #ff511c;
+display: flex;
+position: relative;
+margin-left:10px ;
+}
+/*------INPUT-----*/
+input{
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.signin{
+    background: transparent;
+    border: none;
+}
+.signup{
+    background-color: #ff511c;
+    color: #ffff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+/*------CONTENT------*/
+.content{
+    display:grid;                    /* icindeki kutulari sutun ve satirlara boler*/
+    grid-template-columns: 50% auto;       /*sayfayi yan yana ve iki sutuna ayirir*/
+    gap: 30px;
+    align-items: center;               /* dikeyde tam ortalar sutunlari*/
+    justify-content: space-between;     /*sutunlari yatayda dengelei sekilde bicimde yayar*/
+    width: 100%
+}
+------/*CONTENT TEXT*/
+/*-----------left SIDE------*/
+.content .content-left{
+    display:block;
+    width:100%;
+}
+.content .content-left .info{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.content .content-left .info h2{
+    font-size: 60px;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+}
+.content .content-left .info p{
+    font-size: 20px;
+    line-height: 2pc;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+}
+/* #CONTENT */
+/*--------BUTTON-----*/
+.content .content-left button{
+    padding: 10px 23px;
+    background-color: #ff511c;
+    color: #ffff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+/*CONTENT IMAGE */
+/*---------RIGHT-SIDE-------*/
+.content .content-right{
+    display: block;
+    width: 100%;
+}
+   .content .content-right img{
+    width: 400px;
+    height: 400px; /* Genislik ve yuksekligi esit yapip kareye zorluyoruz */
+    object-fit: contain; /* Tabagin seklini bozmadan karenin tam ortasina kilitler */
+    transform-origin: center center; /* Donus merkezini milimetrik olarak tabagin gobegine sabitler */
+    position: relative;
+    animation: rotate 10s linear infinite;
+}
+/* #CONTENT */
+/*-------ANIMATION------*/
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+/*------CARDS----*/
+.category{
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+.category .list-items{
+    width: 90%;
+    position: relative;
+    margin-top: 100px;
+}
+.category .list-items h3{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: sans-serif;
+margin-bottom: 70px;
+}
+.category .list-items .card-list{
+    display: grid;
+    grid-template-columns: repeat(4,1fr) ;
+}
+.category .card-list .card{
+    width: 200px;
+    height: auto;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    background: #fff;
+    outline: 2px solid #faad96;
+}
+.category .card-list .card img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.category .card-list .card .food-title h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+.category .card .desc-food p{
+    font-size: 13px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+.category .card .price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     
+}
+.category .card .price span .plus-icon{
+    color: #ff511c;
+    font-size: 20px;
+    cursor:pointer;
+}
+/*----SCROLL-BAR(KAYDIRMA CUBUGU)----*/
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background-color: #ff511c;
+}
