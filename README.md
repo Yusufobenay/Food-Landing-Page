@@ -29,4 +29,4 @@ Projeyi yerel bilgisayarında çalıştırmak için aşağıdaki adımları izle
 
 1. Bu depoyu bilgisayarına klonla:
    ```bash
-   git clone [https://github.com/YusufObenAy/food.io.git](https://github.com/YusufObenAy/food.io.git)
+   git clone [https://github.com/YusufObenAy/food.io.git](https://github.com/Yusufobenay/food.io.git)
