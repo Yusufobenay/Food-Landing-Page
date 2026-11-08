@@ -1,4 +1,4 @@
-# 🍔 Food.io - Modern Restaurant Web Application
+# Food.io - Modern Restaurant Web Application
 
 Food.io, modern UI/UX standartlarına göre tasarlanmış ve interaktif JavaScript özellikleriyle zenginleştirilmiş bir restoran web uygulamasıdır. Yalnızca statik bir tasarım değil; dinamik sepet yönetimi, tema geçişleri ve anlık bildirim sistemleriyle tam teşekküllü bir Front-End (Web App) projesidir.
 
