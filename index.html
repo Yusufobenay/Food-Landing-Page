@@ -7,24 +7,34 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <title>Foodio</title>
 </head>
+<body id="home">
+    <!-- HEADER & NAVBAR -->
     <section class="menu">
         <div class="nav">
-            <div class="logo"><h1>Food <b>io</b></h1></div>  <!--Marka Logo alanı-->
-            <ul>    <!--Menü Linklerinin Listesi-->
-               <li><a class="active" href="#">Home</a></li>
-               <li><a href="#">Menu</a></li>
-               <li><a href="#">Service</a></li>
-               <li><a href="#">About Us</a></li>
-               <li><a href="#">Gallery</a></li> 
+            <div class="logo"><h1>Food <b>io</b></h1></div>
+            
+            <div class="hamburger" id="hamburger">
+                <i class='bx bx-menu'></i>
+            </div>
+
+            <ul id="nav-links">
+               <li><a class="active" href="#home">Home</a></li>
+               <li><a href="#menu">Menu</a></li>
+               <li><a href="#service">Service</a></li>
+               <li><a href="#about">About Us</a></li>
+               <li><a href="#footer">Contact</a></li> 
             </ul>
-            <div>
-                <input class="signin" type="submit" value="Sign In" name="singin">
-                <input class="signup" type="submit" value="Sign Up" name="singup">
+            <div class="nav-buttons" id="nav-buttons">
+                <input class="signin" type="button" value="Sign In" onclick="showToast('Login module will be activated soon!', 'info')">
+                <input class="signup" type="button" value="Sign Up" onclick="showToast('Registration module will be activated soon!', 'info')">
+                <!-- DARK MODE IKONU -->
+                <i class='bx bx-moon' id="dark-mode-toggle"></i>
             </div>
         </div> 
     </section>
 
-    <section class="grid">
+    <!-- HERO SECTION -->
+    <section class="grid reveal">
         <div class="content">
             <div class="content-left">
                 <div class="info">
@@ -32,80 +42,188 @@
                     <p>Experience chef-crafted cuisine delivered with unmatched speed.<br>
                     Premium ingredients, exceptional taste, right at your doorstep.</p>
                 </div>
-                <button>Explore Menu</button>
+                <button class="cta-btn" onclick="location.href='#menu'">Explore Menu</button>
             </div>
             <div class="content-right">
-                <img src="food.png" alt="Food">
+                <img src="food.png" alt="Food Plate" class="rotating-plate">
             </div>
         </div>
     </section>
 
-    <section class="category">
-            <div class="list-items">
+    <!-- POPULAR DISHES (FILTRELEME EKLENDİ) -->
+    <section class="category reveal" id="menu">
+        <div class="list-items">
+            <div class="section-title">
                 <h3>Popular Dishes</h3>
-                <div class="card-list">
-                    <!-- 1. KART: Somon Bowl (Senin kendi klasorundeki resim) -->
-                    <div class="card">
-                       <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80" alt="Salmon Poke Bowl">
-                        <div class="food-title">
-                            <h1>Salmon Bowl</h1>
-                        </div>
-                        <div class="desc-food">
-                            <p>Fresh salmon, avocado, edamame with special sesame sauce.</p>
-                        </div>
-                        <div class="price">
-                            <span>$12.99</span>
-                            <span><i class='bx bxs-plus-circle plus-icon'></i></span>
-                        </div>
-                    </div>
+                <p>Our top choices crafted by private chefs</p>
+            </div>
 
-                    <!-- 2. KART: Veggie Bowl -->
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Veggie Poke Bowl">
-                        <div class="food-title">
-                            <h1>Veggie Bowl</h1>
-                        </div>
-                        <div class="desc-food">
-                            <p>Fresh organic vegetables, quinoa, and sweet sesame dressing.</p>
-                        </div>
-                        <div class="price">
-                            <span>$10.99</span>
-                            <span><i class='bx bxs-plus-circle plus-icon'></i></span>
-                        </div>
-                    </div>
-
-                    <!-- 3. KART: Tuna Bowl -->
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=400&q=80" alt="Tuna Poke Bowl">
-                        <div class="food-title">
-                            <h1>Tuna Bowl</h1>
-                        </div>
-                        <div class="desc-food">
-                            <p>Fresh yellowfin tuna, seaweed salad, cucumber and spicy mayo.</p>
-                        </div>
-                        <div class="price">
-                            <span>$14.50</span>
-                            <span><i class='bx bxs-plus-circle plus-icon'></i></span>
-                        </div>
-                    </div>
-
-                    <!-- 4. KART: Chicken Bowl -->
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80" alt="Chicken Poke Bowl">
-                        <div class="food-title">
-                            <h1>Chicken Bowl</h1>
-                        </div>
-                        <div class="desc-food">
-                            <p>Grilled teriyaki chicken breast with mixed fresh greens.</p>
-                        </div>
-                        <div class="price">
-                            <span>$11.50</span>
-                            <span><i class='bx bxs-plus-circle plus-icon'></i></span>
-                        </div>
+            <!-- YENİ: Kategori Filtre Butonları -->
+            <div class="filter-menu">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="salmon">Salmon</button>
+                <button class="filter-btn" data-filter="vegan">Vegan</button>
+                <button class="filter-btn" data-filter="chicken">Chicken</button>
+            </div>
+            
+            <div class="card-list">
+                <!-- data-category kısımları eklendi -->
+                <div class="card" data-category="salmon">
+                    <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80" alt="Salmon Poke Bowl">
+                    <div class="food-title"><h1>Salmon Bowl</h1></div>
+                    <div class="desc-food"><p>Fresh salmon, avocado, edamame with special sesame sauce.</p></div>
+                    <div class="price">
+                        <span>$12.99</span>
+                        <span class="cart-btn"><i class='bx bxs-plus-circle plus-icon'></i></span>
                     </div>
                 </div>
+
+                <div class="card" data-category="vegan">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Veggie Poke Bowl">
+                    <div class="food-title"><h1>Veggie Bowl</h1></div>
+                    <div class="desc-food"><p>Fresh organic vegetables, quinoa, and sweet sesame dressing.</p></div>
+                    <div class="price">
+                        <span>$10.99</span>
+                        <span class="cart-btn"><i class='bx bxs-plus-circle plus-icon'></i></span>
+                    </div>
+                </div>
+
+                <div class="card" data-category="salmon">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=400&q=80" alt="Tuna Poke Bowl">
+                    <div class="food-title"><h1>Tuna Bowl</h1></div>
+                    <div class="desc-food"><p>Fresh yellowfin tuna, seaweed salad, cucumber and spicy mayo.</p></div>
+                    <div class="price">
+                        <span>$14.50</span>
+                        <span class="cart-btn"><i class='bx bxs-plus-circle plus-icon'></i></span>
+                    </div>
+                </div>
+
+                <div class="card" data-category="chicken">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80" alt="Chicken Poke Bowl">
+                    <div class="food-title"><h1>Chicken Bowl</h1></div>
+                    <div class="desc-food"><p>Grilled teriyaki chicken breast with mixed fresh greens.</p></div>
+                    <div class="price">
+                        <span>$11.50</span>
+                        <span class="cart-btn"><i class='bx bxs-plus-circle plus-icon'></i></span>
+                    </div>
                 </div>
             </div>
+        </div>
     </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works reveal" id="service">
+        <div class="section-title">
+            <h3>How It Works</h3>
+            <p>Simple steps to get your food delivered</p>
+        </div>
+        <div class="steps-container">
+            <div class="step-box">
+                <i class='bx bx-restaurant'></i>
+                <h4>1. Choose Your Meal</h4>
+                <p>Explore our premium menu and pick your favorite dish.</p>
+            </div>
+            <div class="step-box">
+                <i class='bx bx-credit-card-front'></i>
+                <h4>2. Easy Payment</h4>
+                <p>Seamless and secure checkout process with one click.</p>
+            </div>
+            <div class="step-box">
+                <i class='bx bx-run'></i>
+                <h4>3. Fast Delivery</h4>
+                <p>Hot and fresh food delivered right to your doorstep.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews reveal" id="about">
+        <div class="section-title">
+            <h3>Customer Reviews</h3>
+            <p>What our foodies say about us</p>
+        </div>
+        <div class="review-container">
+            <div class="review-card">
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                </div>
+                <p>"The Salmon Bowl is incredibly fresh. Delivery was super fast and the packaging was completely eco-friendly!"</p>
+                <div class="reviewer">
+                    <h4>Sarah Jenkins</h4>
+                    <span>Food Blogger</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star-half'></i>
+                </div>
+                <p>"Best teriyaki chicken I've had in a while. Food.io completely elevated my daily lunch routine."</p>
+                <div class="reviewer">
+                    <h4>Michael Chen</h4>
+                    <span>UI/UX Designer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer reveal" id="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2>Food <b>io</b></h2>
+                <p>Experience chef-crafted cuisine delivered with unmatched speed right at your doorstep.</p>
+                <div class="socials">
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Subscribe</h4>
+                <p>Join our newsletter to get weekly updates and special offers.</p>
+                <div class="subscribe-box">
+                    <input type="email" placeholder="Enter your email">
+                    <button onclick="showToast('Subscribed successfully!', 'success')">Send</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Food.io - Developed by Yusuf Oben Ay. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SEPET ÇEKMECESİ -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <i class='bx bx-x' id="close-cart"></i>
+        </div>
+        <div class="cart-content">
+            <p class="empty-msg">Your cart is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <h3>Total: $0.00</h3>
+            <button class="checkout-btn" onclick="showToast('Checkout module coming soon!', 'info')">Checkout</button>
+        </div>
+    </div>
+    
+    <!-- YÜZEN SEPET İKONU (Mobilde ve masaüstünde her zaman sepete ulaşmak için) -->
+    <div class="floating-cart" onclick="openCart()">
+        <i class='bx bx-cart'></i>
+    </div>
+
+    <!-- TOAST BİLDİRİM KUTUSU -->
+    <div id="toast-container"></div>
+
+    <script src="app.js"></script>
 </body>
 </html>
